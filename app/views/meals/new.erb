@@ -1,0 +1,90 @@
+<h1>Add New Meal:</h1>
+
+<form action="/meals" method="post">
+<p>
+	<label>Name:</label>
+	<input type="text" name="meal[name]" placeholder="ie. 'Breakfast 1'" >
+</p>
+
+<br>
+
+<!-- Food 1 -->
+
+<h3>Select Food 1:</h3>
+<p>
+	<label for="food_1_select">Select Food:</label>
+	<select id = "food_1_select" name="foods[food_1][food_slug]"> 
+
+		<% @foods.each do |food| %>
+	  	<option name="foods[food_1][food_slug]" value="<%=food.slug%>"> <%=food.serving_size%> <%=food.name%> / Pro: <%=food.protein%> g / Carb: <%=food.carbs%> g / Fat: <%=food.fat%> g</option> 
+	 <% end %>
+
+	</select>
+</p>
+
+<p>
+	<label for="food_1_servings">Enter Number of Servings:</label>
+	<input type="number" id="food_1_servings" name="foods[food_1][food_servings]" placeholder>
+</p>
+
+<br>
+
+<!-- Food 2 -->
+
+<h3>Select Food 2:</h3>
+<p>
+	<label for="food_2_select">Select Food:</label>
+	<select id = "food_2_select" name="foods[food_2][food_slug]"> 
+
+		<% @foods.each do |food| %>
+	  	<option name="foods[food_2][food_slug]" value="<%=food.slug%>"> <%=food.serving_size%> <%=food.name%> / Pro: <%=food.protein%> g / Carb: <%=food.carbs%> g / Fat: <%=food.fat%> g</option> 
+	  <% end %>
+
+	</select>
+</p>
+
+<p>
+	<label for="food_2_servings">Enter Number of Servings:</label>
+	<input type="number" id="food_2_servings" name="foods[food_2][food_servings]" placeholder>
+</p>
+
+<br>
+
+<!-- Food 3 -->
+
+<h3>Select Food 3:</h3>
+
+<p>
+	<label for="food_3_select">Select Food:</label>
+	<select id = "food_3_select" name="foods[food_3][food_slug]"> 
+
+		<% @foods.each do |food| %>
+	  	<option name="foods[food_3][food_slug]" value="<%=food.slug%>"> <%=food.serving_size%> <%=food.name%> / Pro: <%=food.protein%> g / Carb: <%=food.carbs%> g / Fat: <%=food.fat%> g</option> 
+	  <% end %>
+
+	</select>
+</p>
+
+<p>
+	<label for="food_3_servings">Enter Number of Servings:</label>
+	<input type="number" id="food_3_servings" name="foods[food_3][food_servings]" >
+</p>
+
+<!-- <p>
+	<label>Serving Size:</label>
+	<input type="text" name="meal[serving_size]" placeholder="ie. '4 oz' or '1/2 cup'" >
+</p>
+<p>
+	<label>Protein:</label>
+	<input type="number" name="meal[protein]" placeholder="Grams protein per serving" >
+</p>
+<p>
+	<label>Carbs:</label>
+	<input type="number" name="meal[carbs]" placeholder="Grams carbs per serving" >
+</p>
+<p>
+	<label>Fat:</label>
+	<input type="number" name="meal[fat]" placeholder="Grams fat per serving" >
+</p> -->
+<br><input type="submit" id="submit" name="Add meal" value="Add meal">
+</form>

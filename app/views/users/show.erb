@@ -1,0 +1,21 @@
+<h1><%=@user.username%></h1>
+
+<% @user.diets.each do |diet| %> 
+
+	<p>
+		<a href="/diets/<%=diet.id%>"><%=diet.name%></a> 
+		<br>
+		<%= diet.goal %> 
+	</p>
+
+<%end%>
+
+<form action="/diets/new" method="get">
+	<input type="submit" name="New diet" value="New diet">
+</form>
+
+<br> 
+
+<form action="/logout" method="get">
+	<input type="submit" id="submit" name="Logout" value="Logout">
+</form>

@@ -1,0 +1,18 @@
+<h1><%=@food.name%></h1>
+
+<h5>Serving Size: <%=@food.serving_size%></h5>
+<h5>Protein: <%=@food.protein%> g</h5>
+<h5>Carbs: <%=@food.carbs%> g</h5>
+<h5>Fat: <%=@food.fat%> g</h5>
+<h5>Calories: <%=@food.kcal%></h5>
+
+
+
+
+<form action='/foods/<%=@food.slug%>/edit' method="get">
+  <input type="submit" value="Edit Food">
+</form>
+<form action='/foods/<%=@food.slug%>/delete' method="post">
+	<input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>

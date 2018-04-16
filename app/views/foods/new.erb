@@ -1,0 +1,25 @@
+<h1>Add New Food:</h1>
+
+<form action="/foods" method="post">
+<p>
+	<label>Name:</label>
+	<input type="text" name="food[name]" placeholder="ie. 'Chicken Breast'" >
+</p>
+<p>
+	<label>Serving Size:</label>
+	<input type="text" name="food[serving_size]" placeholder="ie. '4 oz' or '1/2 cup'" >
+</p>
+<p>
+	<label>Protein:</label>
+	<input type="number" name="food[protein]" placeholder="Grams protein per serving" >
+</p>
+<p>
+	<label>Carbs:</label>
+	<input type="number" name="food[carbs]" placeholder="Grams carbs per serving" >
+</p>
+<p>
+	<label>Fat:</label>
+	<input type="number" name="food[fat]" placeholder="Grams fat per serving" >
+</p>
+<input type="submit" id="submit" name="Add Food" value="Add Food">
+</form>

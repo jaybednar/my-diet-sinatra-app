@@ -1,0 +1,23 @@
+
+
+<table>
+	<tr>
+		<th>Serving Size</th>
+		<th>Protein</th>
+		<th>Carbs</th>
+		<th>Fat</th>
+		<th>Calories</th>
+	</tr>
+	<%@foods.each do |food| %>
+	<tr>
+		
+		<td> <a href="/foods/<%=food.slug%>"></a> <%=food.name%></td>
+		<td><%=food.serving_size%></td>
+		<td><%=food.protein%></td>
+		<td><%=food.carbs%></td>
+		<td><%=food.fat%></td>
+		<td><%=food.kcal%></td>
+		
+	</tr>
+	<% end %> 
+</table>

@@ -1,0 +1,18 @@
+<%@meals.each do |meal| %>
+
+
+<h3><%=meal.name%></h3>
+<ol>
+	<%meal.foods.each do |food| %>
+		<li><%=meal.foods.select{|f| food == f}.count%> servings <strong><%=food.name%></strong></li>
+	<%end%>
+</ol>
+<p>
+Protein: <strong><%=meal.protein%></strong>
+Carbs: <strong><%=meal.carbs%></strong>
+Fat: <strong><%=meal.fat%></strong>
+Calories: <strong><%=meal.kcal%></strong>
+</p>
+
+<%end%>
+<br>

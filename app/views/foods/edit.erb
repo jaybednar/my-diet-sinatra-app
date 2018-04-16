@@ -1,0 +1,26 @@
+<h1>Edit Food:</h1>
+
+<form action="/foods/<%=@food.slug%>" method="post">
+	<input type="hidden" id="hidden" name="_method" value="patch">
+<p>
+	<label>Name:</label>
+	<input type="text" name="food[name]" value="<%=@food.name%>">
+</p>
+<p>
+	<label>Serving Size:</label>
+	<input type="text" name="food[serving_size]" value="<%=@food.serving_size%>">
+</p>
+<p>
+	<label>Protein:</label>
+	<input type="number" name="food[protein]" value="<%=@food.protein%>">
+</p>
+<p>
+	<label>Carbs:</label>
+	<input type="number" name="food[carbs]" value="<%=@food.carbs%>">
+</p>
+<p>
+	<label>Fat:</label>
+	<input type="number" name="food[fat]" value="<%=@food.fat%>">
+</p>
+<input type="submit" id="submit" name="Edit Food" value="Edit Food">
+</form>
