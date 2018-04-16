@@ -1,0 +1,123 @@
+<div class="container">
+
+<h1><%=@diet.date%></h1>
+
+<%@diet.meals.each do |meal| %>
+
+	<h3>  <a href="meals/<%=meal.slug%>/edit"></a> <%=meal.name%></h3>
+	<ul>
+		<%meal.foods.uniq.each do |food| %>
+			<li><%=meal.foods.select{|f| food == f}.count%> servings of <%=food.name%></li>
+		<%end%>
+	</ul>
+
+<%end%>
+
+<p>Totals: <strong>Protein:</strong> <%=@diet.protein%> <strong>Carbs:</strong> <%=@diet.carbs%> <strong>Fat:</strong> <%=@diet.fat%> <strong>Calories:</strong> <%=@diet.kcal%></p>
+	<h2>Add Meal:</h2>
+
+<form action="/meals" method="post">
+	<label>Meal Name:</label>
+	<input type="text" name="meal[name]">
+
+
+<br>
+	<br> 
+
+	<!-- <h3>Select Food 1:</h3> -->
+<p>
+	<label for="food_1_select">Select Food:</label>
+	<select id = "food_1_select" name="foods[food_1][food_slug]"> 
+		<option>--</option>
+		<% @foods.each do |food| %>
+	  	<option name="foods[food_1][food_slug]" value="<%=food.slug%>"> <%=food.serving_size%> <%=food.name%> / Pro: <%=food.protein%> g / Carb: <%=food.carbs%> g / Fat: <%=food.fat%> g</option> 
+	 <% end %>
+
+	</select>
+</p>
+
+<p>
+	<label for="food_1_servings">Number of Servings:</label>
+	<select id="food_1_servings" name="foods[food_1][food_servings]">
+		<option name="foods[food_1][food_servings]" value="1">1</option>
+		<option name="foods[food_1][food_servings]" value="2">2</option>
+		<option name="foods[food_1][food_servings]" value="3">3</option>
+		<option name="foods[food_1][food_servings]" value="4">4</option>
+		<option name="foods[food_1][food_servings]" value="5">5</option>
+	</select>
+</p>
+
+<br>
+
+<!-- Food 2 -->
+
+<!-- <h3>Select Food 2:</h3> -->
+<p>
+	<label for="food_2_select">Select Food:</label>
+	<select id = "food_2_select" name="foods[food_2][food_slug]"> 
+		<option>--</option>
+		<% @foods.each do |food| %>
+	  	<option name="foods[food_2][food_slug]" value="<%=food.slug%>"> <%=food.serving_size%> <%=food.name%> / Pro: <%=food.protein%> g / Carb: <%=food.carbs%> g / Fat: <%=food.fat%> g</option> 
+	  <% end %>
+
+	</select>
+</p>
+
+<p>
+	<label for="food_2_servings">Number of Servings:</label>
+	<select id="food_2_servings" name="foods[food_1][food_servings]">
+		<option name="foods[food_2][food_servings]" value="1">1</option>
+		<option name="foods[food_2][food_servings]" value="2">2</option>
+		<option name="foods[food_2][food_servings]" value="3">3</option>
+		<option name="foods[food_2][food_servings]" value="4">4</option>
+		<option name="foods[food_2][food_servings]" value="5">5</option>
+	</select>
+</p>
+
+<br>
+
+<!-- Food 3 -->
+
+<!-- <h3>Select Food 3:</h3> -->
+
+<p>
+	<label for="food_3_select">Select Food:</label>
+	<select id = "food_3_select" name="foods[food_3][food_slug]"> 
+		<option>--</option>
+		<% @foods.each do |food| %>
+	  	<option name="foods[food_3][food_slug]" value="<%=food.slug%>"> <%=food.serving_size%> <%=food.name%> / Pro: <%=food.protein%> g / Carb: <%=food.carbs%> g / Fat: <%=food.fat%> g</option> 
+	  <% end %>
+
+	</select>
+</p>
+
+<p>
+<label for="food_3_servings">Number of Servings:</label>
+	<select id="food_3_servings" name="foods[food_1][food_servings]">
+		<option name="foods[food_3][food_servings]" value="1">1</option>
+		<option name="foods[food_3][food_servings]" value="2">2</option>
+		<option name="foods[food_3][food_servings]" value="3">3</option>
+		<option name="foods[food_3][food_servings]" value="4">4</option>
+		<option name="foods[food_3][food_servings]" value="5">5</option>
+	</select>
+</p>
+	<input type="hidden" name="diet_slug" value="<%=@diet.slug%>">
+	<input type="submit" name="submit" value="Add Meal">
+</form>
+
+<br>
+<br>
+<br>
+
+<form action="/diets/<%=@diet.slug%>/edit" method="post">
+	<input type="submit" name="Edit Diet" value="Edit Diet">
+</form>
+
+<br> 
+
+<form action="/logout" method="get">
+	<input type="submit" id="submit" name="Logout" value="Logout">
+</form>
+
+
+</div>

@@ -28,11 +28,22 @@ class DietsController < ApplicationController
 
 	get '/diets/:slug' do 
 		if logged_in?
+			@foods = Food.all 
+			@meals = Meal.all 
 			@diet = Diet.find_by_slug(params[:slug])
 			erb :'/diets/show'
 		else 
 			redirect to '/login'
 		end 
 	end  
+
+	get '/diets/:slug/edit' do 
+		if logged_in? 
+			@diet = Diet.find_by_slug(params[:slug])
+			erb :'/diets/show'
+		else 
+			redirect to '/login'
+		end 
+	end
 
 end 

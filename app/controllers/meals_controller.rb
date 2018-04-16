@@ -23,13 +23,13 @@ class MealsController < ApplicationController
 		# binding.pry
 		@foods = Food.all 
 
-		if params.include?("add_to_meal")
-			food = Food.find_by_slug(params[:foods][:food_1][:food_slug])
-			add_to_meal = [food, params[:foods][:food_1][:food_servings]]
-			@foods_to_add << add_to_meal
-			# redirect to '/meals/new'
-			erb :'/meals/new'
-		else 
+		# if params.include?("add_to_meal")
+		# 	food = Food.find_by_slug(params[:foods][:food_1][:food_slug])
+		# 	add_to_meal = [food, params[:foods][:food_1][:food_servings]]
+		# 	@foods_to_add << add_to_meal
+		# 	# redirect to '/meals/new'
+		# 	erb :'/meals/new'
+		# else 
 
 			if !params[:meal][:name].empty? 
 				@meal = Meal.create(name: params[:meal][:name])
@@ -42,12 +42,18 @@ class MealsController < ApplicationController
 				
 				@meal.calculate_macros
 
-				redirect to '/meals'
+				@diet = Diet.find_by_slug(params[:diet_slug])
+				# binding.pry
+				@diet.meals << @meal
+
+				@diet.calculate_macros
+
+				redirect to "diets/#{@diet.slug}"
 
 			 
-				redirect to '/meals/new'
+				
 			end 
-		end 
+		# end
 	end 
 
 end 

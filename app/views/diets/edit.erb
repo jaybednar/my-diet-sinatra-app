@@ -1,0 +1,12 @@
+<h1>Editing <%=@diet.date%></h1>
+
+<%@diet.meals.each do |meal| %>
+
+	<h3><%=meal.name%></h3>
+	<ul>
+		<%meal.foods.uniq.each do |food| %>
+			<li><%=meal.foods.select{|f| food == f}.count%> servings of <%=food.name%></li>
+		<%end%>
+	</ul>
+
+<%end%>

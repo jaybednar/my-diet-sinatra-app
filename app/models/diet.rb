@@ -46,11 +46,11 @@ class Diet < ActiveRecord::Base
 	end 
 
 	def slug 
-		self.name.downcase.gsub(" ", "-")
+		self.date.gsub("/", "-")
 	end 
 
 	def self.find_by_slug(slug) 
-		diet_date = slug.gsub("/", " ")
+		diet_date = slug.gsub("-", "/")
 		self.all.detect{|diet| diet.date == diet_date}
 	end 
 
