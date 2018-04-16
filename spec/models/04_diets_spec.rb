@@ -8,15 +8,15 @@ describe 'Diet' do
 		@meal = Meal.create(name: "Meal1")
 		@meal.add_food(@food, 2)
 		@meal.calculate_macros
-		@diet = Diet.create(name: "Diet1", goal: "Maintenance", user_id: @user.id, protein: @meal.protein, carbs: @meal.carbs, fat: @meal.fat, kcal: @meal.kcal)
+		@diet = Diet.create(date: "4/1/18", user_id: @user.id, protein: @meal.protein, carbs: @meal.carbs, fat: @meal.fat, kcal: @meal.kcal)
 	end 
-	it 'has a name attribute' do
-		expect(@diet.name).to eq("Diet1")
+	it 'has a date attribute' do
+		expect(@diet.date).to eq("4/1/18")
 	end 
 
-	it 'has a goal attribute' do
-		expect(@diet.goal).to eq("Maintenance")
-	end 
+	# it 'has a goal attribute' do
+	# 	expect(@diet.goal).to eq("Maintenance")
+	# end 
 
 	it 'has a user_id attribute' do
 		expect(@diet.user_id).to eq(@user.id)

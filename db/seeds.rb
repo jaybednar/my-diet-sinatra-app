@@ -127,7 +127,7 @@ foods_list.each do |name, food_hash|
 
 	f = Food.create
 	f.name = name 
-	f.user = @user 
+
 	
 	food_hash.each do |macro, amount|
 		f[macro] = amount 
@@ -175,7 +175,7 @@ meals_list.each do |name, meal_hash|
 end 
 
 
-@d = Diet.create(name: "Diet1", goal: "Maintenance", user_id: @user.id)
+@d = Diet.create(date: "4/16/18", user_id: @user.id)
 @protein = 0
 @carbs = 0
 @fat = 0

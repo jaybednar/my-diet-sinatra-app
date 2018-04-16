@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 2018_04_12_200309) do
   end
 
   create_table "diets", force: :cascade do |t|
-    t.string "name"
-    t.string "goal"
+    t.string "date"
     t.float "protein"
     t.float "carbs"
     t.float "fat"
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 2018_04_12_200309) do
     t.float "carbs"
     t.float "fat"
     t.integer "kcal"
-    t.integer "user_id"
   end
 
   create_table "meal_foods", force: :cascade do |t|
@@ -49,7 +47,6 @@ ActiveRecord::Schema.define(version: 2018_04_12_200309) do
     t.float "carbs"
     t.float "fat"
     t.integer "kcal"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
