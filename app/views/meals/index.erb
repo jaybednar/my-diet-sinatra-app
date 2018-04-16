@@ -4,7 +4,8 @@
 <h3><%=meal.name%></h3>
 <ol>
 	<%meal.foods.uniq.each do |food| %>
-		<li><%=meal.foods.select{|f| food == f}.count%> serving(s) <strong><%=food.name%></strong></li>
+		<li><%=meal.foods.select{|f| food == f}.count%> serving(s)
+		 <strong><%=food.name%></strong></li>
 	<%end%>
 </ol>
 <p>

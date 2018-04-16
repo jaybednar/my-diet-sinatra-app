@@ -7,7 +7,9 @@
 </p>
 
 <br>
-
+<% @foods_to_add.each do |food_array| %>
+	<%=food_array[1]%> servings of <%=food_array[0]%>
+<%end%>
 <!-- Food 1 -->
 
 <h3>Select Food 1:</h3>
@@ -69,6 +71,9 @@
 	<label for="food_3_servings">Enter Number of Servings:</label>
 	<input type="number" id="food_3_servings" name="foods[food_3][food_servings]" >
 </p>
+
+
+
 
 <!-- <p>
 	<label>Serving Size:</label>

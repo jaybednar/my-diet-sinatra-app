@@ -1,0 +1,40 @@
+<h1>Add New Meal:</h1>
+
+<form action="/meals" method="post">
+<p>
+	<label>Name:</label>
+	<input type="text" name="meal[name]" placeholder="ie. 'Breakfast 1'" >
+</p>
+<% @foods_to_add.each do |food_array| %>
+	<%=food_array[1]%> servings of <%=food_array[0].name%>
+<%end%>
+<br>
+
+<!-- <input type="hidden" name="complete_meal" value="complete_me"> -->
+<br><input type="submit" id="submit" name="Complete meal" value="Complete meal">
+</form>
+
+
+
+
+<form action='/meals' method="post">
+<h3>Select Food 1:</h3>
+<p>
+	<label for="food_1_select">Select Food:</label>
+	<select id = "food_1_select" name="foods[food_1][food_slug]"> 
+
+		<% @foods.each do |food| %>
+	  	<option name="foods[food_1][food_slug]" value="<%=food.slug%>"> <%=food.serving_size%> <%=food.name%> / Pro: <%=food.protein%> g / Carb: <%=food.carbs%> g / Fat: <%=food.fat%> g</option> 
+	 <% end %>
+
+	</select>
+</p>
+
+<p>
+	<label for="food_1_servings">Enter Number of Servings:</label>
+	<input type="number" id="food_1_servings" name="foods[food_1][food_servings]" placeholder>
+</p>
+<input type="hidden" name="add_to_meal" value="add_me">
+<br><input type="submit" id="submit" name="Save food" value="Save food and add another">
+
+ </form>
