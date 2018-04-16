@@ -1,5 +1,5 @@
 class Meal < ActiveRecord::Base
-	belongs_to :user
+	# belongs_to :user
 	
 	has_many :diet_meals 
 	has_many :diets, through: :diet_meals

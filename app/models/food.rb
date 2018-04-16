@@ -1,6 +1,6 @@
 class Food < ActiveRecord::Base
-	belongs_to :creator
-	has_many :users
+	# belongs_to :creator, :class_name "User"
+	# has_many :users
 	
 	has_many :meal_foods
 	has_many :meals, through: :meal_foods 
