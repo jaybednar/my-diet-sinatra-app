@@ -6,6 +6,7 @@ class CreateMeals < ActiveRecord::Migration[5.2]
   		t.float :carbs 
   		t.float :fat 
   		t.integer :kcal 
+  		t.integer :creator_id 
   	end 
   end
 end

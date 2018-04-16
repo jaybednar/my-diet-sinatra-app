@@ -1,4 +1,6 @@
 class Food < ActiveRecord::Base
+	belongs_to :user
+	
 	has_many :meal_foods
 	has_many :meals, through: :meal_foods 
 	
@@ -9,12 +11,10 @@ class Food < ActiveRecord::Base
 		self.kcal ||= 0.0
 	end 
 	
-	def food_kcal(servings = 1)
-		total_protein = self.protein * servings 
-		total_carbs = self.carbs * servings
-		total_fat = self.fat * servings
-		self.kcal = ((total_protein * 4) + (total_carbs * 4) + (total_fat * 9))
-		self.save
+	def food_kcal
+		# binding.pry
+		kcal = ((self.protein * 4) + (self.carbs * 4) + (self.fat * 9))
+		self.update(kcal: kcal)
 	end 
 
 	def slug 

@@ -1,3 +1,5 @@
+  @user = User.create(username: "jb", email: "jb@jb.com", password: "jjj")
+
 foods_list = {
 	"Chicken Breast" => {
 		serving_size: "4 oz",
@@ -122,13 +124,16 @@ foods_list = {
 }
 
 foods_list.each do |name, food_hash|
+
 	f = Food.create
 	f.name = name 
+	f.user = @user 
+	
 	food_hash.each do |macro, amount|
 		f[macro] = amount 
 	end 
-	f.kcal = f.food_calories
-	f.save
+
+	f.food_kcal
 end 
 
 
@@ -168,9 +173,6 @@ meals_list.each do |name, meal_hash|
 	# m.food_ids = meal_hash[:food_ids]
 	m.calculate_macros
 end 
-
- 
-  @user = User.create(username: "jb", email: "jb@jb.com", password: "jjj")
 
 
 @d = Diet.create(name: "Diet1", goal: "Maintenance", user_id: @user.id)
